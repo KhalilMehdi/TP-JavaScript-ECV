@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <img id="img1" onclick="zoom(this)" src="https://fakeimg.pl/250x100/" />
+      <img
+        id="img2"
+        onclick="zoom(this)"
+        src="https://fakeimg.pl/250x100/111"
+      />
+    </ul>
+  </body>
+  <script type="text/javascript">
+    function zoom(clickedElement) {
+      const otherElement =
+        clickedElement.id === "img1"
+          ? document.getElementById("img2")
+          : document.getElementById("img1");
+      clickedElement.style.transform = "scale(1.2)";
+      otherElement.style.transform = "scale(0.8)";
+    }
+  </script>
+</html>

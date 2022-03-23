@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li>Berlin</li>
+      <li>Paris</li>
+      <li>Beyrouth</li>
+      <li>Caire</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+    let list = document.querySelectorAll("ul li");
+    list.forEach((li) => {
+      li.addEventListener("click", function () {
+        document.querySelector("ul").prepend(this);
+      });
+    });
+  </script>
+</html>

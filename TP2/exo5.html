@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <img
+        id="img1"
+        onmouseover="zoom(this)"
+        onmouseout="unzoom(this)"
+        src="https://fakeimg.pl/250x100/"
+      />
+      <img
+        id="img2"
+        onmouseover="zoom(this)"
+        onmouseout="unzoom(this)"
+        src="https://fakeimg.pl/250x100/111"
+      />
+      <img
+        id="img3"
+        onmouseover="zoom(this)"
+        onmouseout="unzoom(this)"
+        src="https://fakeimg.pl/250x100/860411"
+      />
+    </ul>
+  </body>
+  <script type="text/javascript">
+    let img = document.querySelectorAll("img");
+    function zoom(img) {
+      img.style.transform = "scale(3)";
+    }
+    function unzoom(img) {
+      img.style.transform = "scale(1)";
+    }
+  </script>
+</html>

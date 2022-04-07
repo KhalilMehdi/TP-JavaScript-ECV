@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="square" onclick="goToRed(this)"></div>
+    <div class="square" onclick="goToRed(this)"></div>
+    <div class="square" onclick="goToRed(this)"></div>
+    <style>
+        .square {
+            width: 12rem;
+            aspect-ratio: 1 / 1;
+            background: black;
+            margin-bottom: 2rem;
+        }
+    </style>
+  </body>
+  <script type="text/javascript">
+      let div = document.getElementsByTagName('div');
+
+  function goToRed(div) {
+    if (div.style.background == 'black') {
+        div.style.background = 'red'
+    }
+    else {
+        div.style.background = 'black';
+    }
+}
+  </script>
+</html>

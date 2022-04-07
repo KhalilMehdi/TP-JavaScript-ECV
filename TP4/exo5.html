@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body></body>
+  <script type="text/javascript">
+    function palindrome(str) {
+      let j = str.length - 1;
+      for (let i = 0; i < j / 2; i++) {
+        let x = str[i];
+        let y = str[j - i];
+        if (x != y) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function boolPalindrome(str) {
+      let ans = palindrome(str);
+
+      if (ans == true) {
+        document.write(test, " = true");
+      } else {
+        document.write(test, " = false");
+      }
+    }
+    let test = "ressasser";
+    boolPalindrome(test);
+  </script>
+</html>

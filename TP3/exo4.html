@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body></body>
+  <script type="text/javascript">
+    const newUl = document.createElement("ul");
+    document.body.appendChild(newUl);
+    const ul = document.querySelector("ul");
+
+    window.addEventListener("keypress", function (e) {
+      if (ul.childElementCount == 20) {
+        ul.firstChild.remove();
+      }
+      const li = document.createElement("li");
+      li.textContent = e.key;
+      ul.appendChild(li);
+    });
+  </script>
+</html>

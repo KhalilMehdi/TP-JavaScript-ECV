@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body></body>
+  <script type="text/javascript">
+    function Length(str) {
+      let strlength = str.length;
+      return new Promise((sucessCallback, failureCallback) => {
+        if (strlength < 20) {
+          console.log(strlength);
+          sucessCallback("True");
+        } else {
+          failureCallback("False");
+        }
+      });
+    }
+    function sucessCallback(resulat) {
+      console.log("L'opération a réussi avec le message :" + resulat);
+    }
+    function failureCallback(erreur) {
+      console.log("L'opération a échoué avec le message :" + erreur);
+    }
+    const promise = Length("hello world");
+    promise.then(sucessCallback, failureCallback);
+  </script>
+</html>

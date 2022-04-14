@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <body></body>
+  <script type="text/javascript">
+    const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+    const month = ["A", "B", "C", "D", "E", "H", "L", "M", "P", "R", "S", "T"];
+
+    function surname(vSurname) {
+      let surname = Array.from(vSurname).filter((v) => !vowels.includes(v));
+
+      if (surname.length < 3) {
+        surname = surname.concat(
+          Array.from(vSurname).filter((v) => vowels.includes(v))
+        );
+        surname.push("x", "x", "x");
+      }
+
+      return surname.slice(0, 3).join("").toUpperCase();
+    }
+
+    function name(vName) {
+      let name = Array.from(vName).filter((v) => !vowels.includes(v));
+
+      if (name.length > 3) {
+        name.splice(1, 1);
+      } else if (name.length < 3) {
+        name = name.concat(Array.from(vName).filter((v) => vowels.includes(v)));
+        name.push("x", "x", "x");
+      }
+
+      return name.slice(0, 3).join("").toUpperCase();
+    }
+
+    function dob(date, gender) {
+      let dob = Array.from(date).slice(-2);
+      dob.push(month[date.split("/").splice(1, 1) - 1]);
+
+      if (gender == "M") {
+        let day = date.split("/").splice(0, 1);
+        if (parseInt(day) < 10) {
+          day.unshift("0");
+        }
+        dob.push(day.join(""));
+      } else {
+        dob.push(parseInt(date.split("/").splice(0, 1)) + 40);
+      }
+
+      return dob.join("");
+    }
+
+    function fiscalCode(person) {
+      document.write(
+        surname(person.surname) +
+          name(person.name) +
+          dob(person.dob, person.gender) +
+          "\n\r"
+      );
+    }
+
+    fiscalCode({
+      name: "Matt",
+      surname: "Edabit",
+      gender: "M",
+      dob: "1/1/1900",
+    }); //"DBTMTT00A01"
+
+    fiscalCode({
+      name: "Helen",
+      surname: "Yu",
+      gender: "F",
+      dob: "1/12/1950",
+    }); //"YUXHLN50T41"
+
+    fiscalCode({
+      name: "Mickey",
+      surname: "Mouse",
+      gender: "M",
+      dob: "164/1/1928",
+    }); // "MSOMKY28A16"
+  </script>
+</html>
